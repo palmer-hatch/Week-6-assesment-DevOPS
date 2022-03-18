@@ -20,6 +20,14 @@ rollbar.log('Hello world!')
 
 app.use(express.json())
 
+
+
+//roll bar errors
+app.get('/', (req, res) => {
+    rollbar.info("html served successful")
+    res.sendFile(path.join(__dirname, '/index.html'))
+})
+
 //Middleware(below you only need to serve it up once)
 // app.use(express.static(path.join(__dirname, "../public")))
 
@@ -96,6 +104,8 @@ app.get('/api/player', (req, res) => {
         res.sendStatus(400)
     }
 })
+
+app.use(rollbar.errorHandler());
 
 const port = process.env.PORT || 3000
 
