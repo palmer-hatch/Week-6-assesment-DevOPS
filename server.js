@@ -6,6 +6,18 @@ const {shuffleArray} = require('./utils')
 
 app.use(express.json())
 
+// roll bar initial library
+var Rollbar = require('rollbar')
+var rollbar = new Rollbar({
+  accessToken: 'b78b08d6dc9f43cb9a96ccacdfbb742a',
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+})
+
+// record a generic message and send it to Rollbar
+rollbar.log('Hello world!')
+
+
 //Middleware(below you only need to serve it up once)
 // app.use(express.static(path.join(__dirname, "../public")))
 
