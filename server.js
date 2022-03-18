@@ -22,11 +22,6 @@ app.use(express.json())
 
 
 
-//roll bar errors
-app.get('/', (req, res) => {
-    rollbar.info("html served successful")
-    res.sendFile(path.join(__dirname, '/index.html'))
-})
 
 //Middleware(below you only need to serve it up once)
 // app.use(express.static(path.join(__dirname, "../public")))
@@ -34,6 +29,7 @@ app.get('/', (req, res) => {
 
 // endpoints... because i cant remember the intricacies of middleware
 app.get("/",function(req,res){
+    rollbar.info("html served successful")
     res.sendFile(path.join(__dirname, "/public/index.html"))
 });
 app.get("/styles", function(req,res){
