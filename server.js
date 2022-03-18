@@ -42,7 +42,7 @@ app.get("/styles", function(req,res){
 
 app.get('/api/robots', (req, res) => {
     try {
-        res.status(200).send(botsArr)
+        res.status(200).send(bots)
     } catch (error) {
         rollbar.critical("Did not get bots")
         console.log('ERROR GETTING BOTS', error)

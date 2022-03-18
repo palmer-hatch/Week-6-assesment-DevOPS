@@ -1,10 +1,14 @@
 const {shuffleArray} = require('./utils')
 
-describe('shuffleArray should return an array and lenght remains the same ', () => {
+let dummyArr = [1,2,3,4]
+
+describe('shuffleArray should return an array and length remains the same ', () => {
      test("should return an array", () =>{
-        expect(shuffleArray).toReturn(arrCopy)
+         let returnedArr = shuffleArray(dummyArr)
+        expect(returnedArr).toReturn(dummyArr)
     })
-    test ("should same array.lenght", () =>{
-        expect(arr.length).toBe(arrCopy.length)
+    test ("should same array.length", () =>{
+        let returnedArr = shuffleArray(dummyArr)
+        expect(returnedArr.length).toBe(dummyArr.length)
     })
 })
