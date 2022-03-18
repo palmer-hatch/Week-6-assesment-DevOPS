@@ -4,7 +4,7 @@ const app = express()
 const {bots, playerRecord} = require('./data')
 const {shuffleArray} = require('./utils')
 
-app.use(express.json())
+
 
 // roll bar initial library
 var Rollbar = require('rollbar')
@@ -17,6 +17,8 @@ var rollbar = new Rollbar({
 // record a generic message and send it to Rollbar
 rollbar.log('Hello world!')
 
+
+app.use(express.json())
 
 //Middleware(below you only need to serve it up once)
 // app.use(express.static(path.join(__dirname, "../public")))
